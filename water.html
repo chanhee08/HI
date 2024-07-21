@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+    <html>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <title>HIdrogaugE</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+        <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+                color: #3CAEFF;
+                margin-bottom: 40px;
+                text-align: center;
+                margin: 0px;
+                padding: 20px;
+            }
+        </style>
+        </head>
+        <body>
+
+            <h1 id = "backToHome"><span style="font-family: 'Playwrite IT Moderna' !important;">💙HIdrogaugE💙</span></h1><br>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const backToHome = document.getElementById('backToHome');
+                    backToHome.addEventListener('click', function() {
+                        window.location.href = 'index.html'; // index.html로 이동
+                    });
+                });
+            </script>
+            <input type="number" id="weightInput" placeholder="    체중을 입력하세요(kg)">
+            <br>
+            <button onclick="showWaterIntake()"><span style="font-family: 'Jua' !important;">하루 물 권장량 보기</span></button>
+            <style>
+                button {
+                    width: 150px;
+                    height: 60;
+                    background-color: #d7ecf8;
+                    color: #26394e;
+                    border-radius: 5px;
+                    border-color: #3CAEFF;
+                    font-size: 16px;
+                }
+            </style>
+
+            <p id="intakeResult"></p>
+
+            <script>
+                function showWaterIntake() {
+                    let weight = document.getElementById('weightInput').value;
+
+                    if (weight === '') {
+                        weight = 0;
+                    }
+
+                    const recommendedIntake = weight * 30;
+                    document.getElementById('intakeResult').innerText = '물 권장 섭취량: ' + recommendedIntake + 'ml';
+                }
+            </script>
+            
+        </body>
+    </html>
