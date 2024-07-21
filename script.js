@@ -27,6 +27,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const recordedDays = dailyIntake.filter(intake => intake > 0);
         const averageIntake = recordedDays.reduce((sum, intake) => sum + intake, 0) / recordedDays.length;
         averageIntakeElement.textContent = `한 달 평균 물 섭취량: ${averageIntake.toFixed(2)} 컵`;
+
+        if (averageIntake >= 0 && averageIntake <= 1) {
+            cupImage.src = 'one-cup-or-less.png';
+        } else if (averageIntake > 1&& averageIntake <= 3) {
+            cupImage.src = 'two-to-three-cups.png';
+        }else if (averageIntake > 3 && averageIntake <= 5) {
+            cupImage.src='four-to-five-cups.png';
+        }else if (averageIntake > 5 && averageIntake <= 7) {
+            cupImage.src = 'six-to-seven-cups.png';
+        } else if (averageIntake > 7) {
+            cupImage.src = 'eight-cups-or-more.png';
+        }else {
+            cupImage.scr = '';
+        }
+        
+        if (averageIntake > 0) {
+            cupImage.style.display = 'block';
+        } else {
+            cupImage.style.display = 'none';
+        }
     });
 
     function renderCalendar(month, days) { 
